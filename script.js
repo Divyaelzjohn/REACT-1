@@ -201,4 +201,17 @@ React components use props to communicate with each other. Every parent componen
 /*
 In addition to string , numbers and other javascript expression , you can even pass objects in JSX. Objects are also denoted with curly braces, like {name:"Hedy Lamarr"}. Therefore to pass a JS object in another  pair of curly braces:person={{name:"Hedy Lamarr", inventions:5}}.
 You may see this with inline CSS styles in JSX. React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the style attribute:
+
+Parent passes props -> child receives props ->Default Value for a Prop [When a parent does not provide a prop, you can give it a default value directly in the function parameter]
+Forwarding props with spread syntax-[Sometimes you want to pass all props from a parent to a child without typing each one]
+
+Passing JSX as children
+<Card><Avatar/></Card>
+ card automatically recieves a special prop called children.
+ function Card({children}){
+ return(
+  <div className="card">
+    {children}
+  </div>
+ )}
 */
