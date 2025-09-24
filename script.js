@@ -190,3 +190,15 @@ What is JSX?-> JSX allows us to write HTML elemnt in javascript and place them i
  2. Export your function component from that file (using either default or named exports)
  3. Import it in the file you'll use the component(using the corresponding technique for importing default or named exports)
 */
+
+
+/*
+Passing Props to a Component
+React components use props to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any Javascript value through them, including objects, arrays and function
+*/
+
+// Using "double curlies":CSS and other objects in JSX
+/*
+In addition to string , numbers and other javascript expression , you can even pass objects in JSX. Objects are also denoted with curly braces, like {name:"Hedy Lamarr"}. Therefore to pass a JS object in another  pair of curly braces:person={{name:"Hedy Lamarr", inventions:5}}.
+You may see this with inline CSS styles in JSX. React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the style attribute:
+*/
