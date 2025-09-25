@@ -54,3 +54,13 @@ export default function Counter(){
 // }
 
 
+/* Why state is necessary?
+-Makes UI dynamic -> without state , UI won't update when data changes,
+-Component memory -> Keeps values between renders.
+-Triggers re-render -> React knows what to update on screen.
+-Interactive apps -> Needs for counter, forms , toggle , shopping carts etc.
+
+Normal variables=writing on paper(UI won't see changes
+state-> writing on a shared whiteboard(everyone sees updates immediately)
+
+*/

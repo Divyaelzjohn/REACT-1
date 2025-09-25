@@ -241,4 +241,10 @@ Props v/s State
 -State can be changed .
 -Props are like parameters passed to a function.
 -State is like a variable declared in function body.
+
+UseState-> useState is a React Hook. It lets a component remeber data(called state) and update the UI automatically when that data changes 
+
+Rule 1: Always use the state update function -> When you create state with useState, React gives you two things: count->current value, setCount -> function to update it
+Rule 2: Updating is asynchronus -> React batches updates for performance,. That means you can't always rely on the current value if you call multiple updates in a row.
+Rule 3-> Replace, don't modify ->For objects/arrays, you must create a new copy(because React checks if the refernce changed)
 */
