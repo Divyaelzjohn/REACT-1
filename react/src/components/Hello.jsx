@@ -1,4 +1,4 @@
-/*
+
 function Hello({name,message,emoji}){
   // console.log(props);
   // const {name,message}= props;
@@ -7,7 +7,8 @@ function Hello({name,message,emoji}){
       <h1>{message} {emoji} {name}</h1>
     </div>
   )
-}*/
+}
+export default Hello;
 
 /*
 Immutable
@@ -19,7 +20,7 @@ function Hello(props){
     </div>
   )
 }*/
-
+/*
 // Passing array to a prop
 // function Hello({name, message, emoji, seatNumbers}){
 function Hello({ person }) {
@@ -35,3 +36,7 @@ function Hello({ person }) {
   );
 }
 export default Hello;
+*/
+
+
+
