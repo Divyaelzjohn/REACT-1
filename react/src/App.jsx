@@ -1,25 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Hello from './components/Hello'
-import { getImageUrl } from './components/TASK-3/utils'
-import Profile from './components/TASK-3/Profile'
-import Card from './components/Card-3/Card'
-import Fruits from './components/Render/Fruits'
-import ConditionalComponent from './components/Render/ConditionalComponent'
-import Message from './components/Render/Message'
-import Counter from './components/State/Counter'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Hello from "./components/Hello";
+import { getImageUrl } from "./components/TASK-3/utils";
+import Profile from "./components/TASK-3/Profile";
+import Card from "./components/Card-3/Card";
+import Fruits from "./components/Render/Fruits";
+import ConditionalComponent from "./components/Render/ConditionalComponent";
+import Message from "./components/Render/Message";
+import Counter from "./components/State/Counter";
+import Form from "./components/Form/Form";
+import Search from "./components/search/Search";
 
 function App() {
   // const [count, setCount] = useState(0)
   // const seatNumbers=[1,4,7]
-// const person={
-//   name:"Rob",
-//   message:"Hi there!",
-//   emoji:"😄",
-//   seatNumbers:[1,4,7]
-// }
+  // const person={
+  //   name:"Rob",
+  //   message:"Hi there!",
+  //   emoji:"😄",
+  //   seatNumbers:[1,4,7]
+  // }
   return (
     <div className="App">
       {/* <Hello 
@@ -34,10 +36,12 @@ function App() {
       {/* <ConditionalComponent/> */}
       {/* <Message/> */}
       <Counter/>
+      {/* <Form/> */}
+      {/* <Search /> */}
     </div>
-  )
+  );
 }
-export default App
+export default App;
 
 /*
 function App() {

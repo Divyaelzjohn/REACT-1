@@ -86,7 +86,7 @@ There are two types of components functional component and a class component
 
 functional component is just a plain  js pure function that accepts props an arguments and returnas a React element(JSX)
 There  is no render method used in functional components
-Functiona; component run from yo top to bottom and once the function is returned it cant be kept alive
+Functional component run from yo top to bottom and once the function is returned it cant be kept alive
 Also known as Stateless component as they simply acccept data and display them in some form , that they are mainly responsible for rendering UI
 React lifecycle methods (for example , componentDidMOunt) canot be used in functional components
 Hooks can be used in functional components to make the, stateful 
@@ -138,11 +138,9 @@ React uses JSX to describe what the UI should look like.
 // const name = "Divya";
 // const element = <h1>Hello, {name}!</h1>;
 
-
 /* Attribute in JSX
 const element = <img src="logo.png" alt="Logo"/>;
 const button=<button onClcick={handleClick}>Click Me</button>*/
-
 
 /*
 JSX CHILDREN
@@ -172,7 +170,6 @@ Key Point : Functional component are now more powerful with React Hooks (like us
 3.Props -> Props are inputs to components. They make components reusable
  */
 
-
 /*
 What is JSX?-> JSX allows us to write HTML elemnt in javascript and place them in the DOM without any createElement() and/or appendChild() methiod
 -JSX stands for JavaScriptXML.
@@ -190,7 +187,6 @@ What is JSX?-> JSX allows us to write HTML elemnt in javascript and place them i
  2. Export your function component from that file (using either default or named exports)
  3. Import it in the file you'll use the component(using the corresponding technique for importing default or named exports)
 */
-
 
 /*
 Passing Props to a Component
@@ -216,7 +212,6 @@ Passing JSX as children
  )}
 */
 
-
 // Rendering
 /*
 Key is a special attribute in React . It helps React identiyf which items have changed, are added, or removed . This makes re-rendering lists more efficient
@@ -225,7 +220,7 @@ Key is a special attribute in React . It helps React identiyf which items have c
 // State in React
 /*
 State=memmory inside a component
-It lets a component "remember" information bwtween renders.
+It lets a component "remember" information between renders.
 Unlike normal variables, when state changes , the component automatically re-renders to update the UI
 
 why?
@@ -247,4 +242,208 @@ UseState-> useState is a React Hook. It lets a component remeber data(called sta
 Rule 1: Always use the state update function -> When you create state with useState, React gives you two things: count->current value, setCount -> function to update it
 Rule 2: Updating is asynchronus -> React batches updates for performance,. That means you can't always rely on the current value if you call multiple updates in a row.
 Rule 3-> Replace, don't modify ->For objects/arrays, you must create a new copy(because React checks if the refernce changed)
+*/
+
+// In object state  possible to change the contents of the object itself.This is called mutauion
+
+// In React, useState as well as any other function starting with "use", is called a Hook
+/*
+  Hooks new special functions that are only available while React is rendering (which we'll get into in more detail on the next page).They let you "hook into" diffrent React features
+
+  The state variable(index) with the value you stored
+  The state setter function(setIndex) which can update the state variable and trigger React to render the component again.
+
+  "lifting state up"
+
+  useEffect hook -> a hook which allows us to sync a component with some external system
+*/
+
+/*
+
+1.useState - For Managing State
+What it does -> 
+  useState lets you add state ti a functional component.
+  State is data that can change over time (like input values, counters,toggles,fetched data)
+  Syntax -> const[state, setStae]=useState(initialValue);
+  state-the current value of the state variable
+  setState-a function to update that state
+  initialValue:the starting/default value of the state
+
+  button clicked- >setCount(count+1) updates the state.
+                  React re-renders the component
+                  The new count value is displayed
+
+fundamentals
+Adds state(data that can change) to a component.
+Without state, a component can only show static data.
+With state, a component can remeber values between renders
+
+Purpose:
+ -To store and manage data inside a component
+ -Lets your component remember values between render
+ -Without it, your UI would always reset yo its initial state on every render
+
+ 1.Form inputs(store text from a user typing)
+  const[name,setName]=useState("")
+
+2.Toggles(like showing/hiding context, dark mode switch)
+  const [isOpen, setIsOpen]=useState(false);
+
+3.Counters or scores
+  const [count,setCount]=useState(0)
+
+4.Lists or arrays(like todos, products,artists)
+  const[todos,setTodos]=useState([])
+
+
+2. useEffect -> For side effects
+What it does:
+  useEffect lets you run code in response to something to something changing(state, props, or lifecycle events)
+  -It's used for side effects like:
+      Fetching data from an API
+      Setting up subscriptions or event listeners
+      Updatin the DOM manuvally
+      Running the DOM manuvally 
+      Running code when the component mounts/unmounts
+
+    Syntax->useEffect(()=>{
+      return()=>{
+        };
+      },[dependencies]);
+
+    -Effect function -> runs after the component renders
+    - cleanup function(optional) -> runs before the component unmounts or before re-running the effect
+    -Deoendency array:
+      -[] -> run only once(on mount)
+      -[variable] -> run when that variable changes.
+      -No array -> runs after every render
+
+useState -> used for declaring and updating state variables inside functional components
+useEffect -> used for running side effects after rendering( fetching data , timers , subscriptions, DOM updates, cleanup etc.)
+
+fundamentals
+-Runs code after the component renders.
+-Perfect for tasks that are not about returning JSX, like
+    -Fetching data from an API
+    -Setting up timers or event listeners.
+    -Cleaning up resources
+
+Purpose:
+  To run side effects in a component
+  A side effect = something that affects the outside world or happends outside JSX rendering
+
+Common Use-cases:
+  1.Fetching data from aAPIs
+      useEffect(()=>{
+        fetch("https://api.example.com/data")
+        .then(res=>res.json())
+        .then(data=>setItems(data))},[])
+  2.Subscribing to events(eg.,window resize,keypress)
+    useEffect(()=>{
+      function handleResize(){
+      console.log("Resized to", window.innerWidth)}
+      }
+      window.addEvenyListener("resize",handleResize);
+      return()=>window.removeEventListener("resize",handleResize);},[])
+  3.Timers or intervals
+    useEffect(()=>{
+      const timer=setInterval(()=>{
+        console.log("Tick")},1000);
+        return()=>clearInterval(timer);
+      },[]);
+  4.Syncing state with localStorage
+    useEffect(()=>{
+      localStorage.setItem("todos",JSON.stringyfy(todos));
+      },[todos])
+
+
+complex state
+
+so far,we've seen useState with simple values like numbers,booleans or strings. But in real apps, state can be more complex
+
+1.State as Objects
+const[user,setUser]=useState({name:"Alice",age:25})
+
+//updating part of the object
+setUser({...user,age:26})
+
+Never mutate directly: user.age = 26;(doesn't re-render)
+Always create a new object with changes
+
+2.State as Arrays
+const [tasks,setTasks]=useState(["Learn React","Practice JS"]);
+//Adding
+setTasks([...tasks, "Build project"])
+// Removing
+setTasks(tasks.filter(t=>t!=="Practice JS"))
+
+Arrays should be updated immutably(always return a new array)
+
+3.State Derived from State
+Sometimes you update state based on the previous state value
+setCount(prev=>prev+1)
+this avoids bugs when multiple updates are queued.
+
+4. Multiple state variables
+Instead of one giant state object, you can split logically
+const [name,setName]=useState("")
+const [age,setAge]=useState(0)
+coonst [isLoggedIn, setIsLoggedIn] = useState(false)
+
+This makes code cleanerand avoids unnecessary re-renders
+
+
+Understanding side Effects with useEffect
+What is a Side Effect?
+Anything that happens outside of rendering JSX:
+- Data fetching
+- Subscribing to browser events
+- Changing the DOM manually
+- Stating timers
+
+Rules to Remember
+1.Runs after render
+  React renders -> then useEffect runs
+2.Dependencies decide when it runs
+  useEffect(() => {
+    console.log("Runs once on mount");
+  }, []); 
+  useEffect(() => {
+    console.log("Runs whenever count changes");
+  }, [count]);
+3.Cleanup -> If you effect sets something up (like a timer or event listener), clean it up
+  useEffect(() => {
+    const id = setInterval(() => console.log("tick"), 1000);
+    return () => clearInterval(id); // cleanup when component unmounts
+  }, []);
+
+By today, if you understand:
+
+  How to handle state as arrays & objects?
+  --Always create a new array/object when updating.
+  Example:
+  setUser({ ...user, age: 26 });
+  setTasks([...tasks, "New Task"]);
+
+  Why updates must be immutable?
+  --Direct mutation (changing the original object/array) doesn’t trigger React to re-render.
+  New reference = React knows state has changed → re-renders the UI.
+
+  How useEffect runs after render?
+  --React first paints the UI, then runs your effect code.
+  Effects are for side work (data fetch, timers, subscriptions, DOM manipulation).
+
+  How dependencies control re-runs
+  --[] → runs once (on mount).
+    [count] → runs whenever count changes.
+    No array → runs on every render.
+
+  Why cleanup is important
+  --Prevents memory leaks and buggy behavior.
+  Example:
+  useEffect(() => {
+    const id = setInterval(() => console.log("tick"), 1000);
+    return () => clearInterval(id); // cleanup
+  }, []);
+
 */
