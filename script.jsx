@@ -191,6 +191,12 @@ What is JSX?-> JSX allows us to write HTML elemnt in javascript and place them i
 /*
 Passing Props to a Component
 React components use props to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any Javascript value through them, including objects, arrays and function
+
+
+Data Flow: Props facilitate a one-way data flow, specifically from parent to child components. A parent component can pass data to its direct children, and those children can then pass it down to their own children, and so on.
+Read-Only: Props are immutable within the child component that receives them. This means a child component cannot directly modify the props it receives. If data needs to be changed, the modification must occur in the parent component (often through state management), and the updated data is then passed down as new props.
+Component Reusability: Props are essential for making components reusable. You can create a generic component (e.g., a Product component) and then customize its content and behavior by passing different data through props (e.g., name, price, description).
+Syntax: Props are passed to components using a syntax similar to HTML attributes when you render a component in JSX. The component then receives these as an object, typically named props, in its function signature (for functional components) or as this.props (for class components).
 */
 
 // Using "double curlies":CSS and other objects in JSX
