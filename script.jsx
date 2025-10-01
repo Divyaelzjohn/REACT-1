@@ -453,3 +453,30 @@ By today, if you understand:
   }, []);
 
 */
+
+/* 
+  In react you want to display a list of items you commonly use .map() to loop through the array JSX for each element
+
+  Key a string or a number that uniquely identifies it among other items in that array
+  Key tells React which array item each component coresponds to ,so that it can match them up later . This become important  if your array items can move (eg due to string ), get inserted or get deleted , A well chosen key helps React infer what exactly has happend and make the correct updates to the DOM tree .
+
+  Conditional rendering -> Sometimes in React you dont want to show a component all the time you want it to appear only when a certain condition rendering . React gives you multiple ways to do this 
+
+  if        -> The most straught forward method is using if/else statement inside your components function body to return diffrent JSX blocks. This approch is clear and easy to read making it ideal for complex , multifile conditional logic
+  Ternary operator   ->The ternary operator is a concise alternative for inline conditional rendering, especially when there are only two possible outcomes. It is perfect for handling simple if-else logic directly within JSX. 
+  Logical && -> show something only if a condition true,       The logical && operator is a useful shorthand for conditionally rendering a single element or component. If the condition on the left side is true, the expression on the right is rendered. If the condition is false, React ignores and skips it, rendering nothing. 
+  number>0&& 
+
+  How to choose the right method
+  Use if/else for complex logic. When your condition requires multiple lines of code, an if/else block outside the return statement is the most readable and maintainable option.
+  Use the ternary operator (? :) for simple conditions with two outcomes. It is a concise way to choose between rendering two different components or values inline.
+  Use the logical && operator for a single conditional outcome. This is the cleanest way to either render a component or render nothing at all. 
+
+  In react components often need to display diffrent UI elements depending on the current state of the app . common scenarios inclide
+  1.Loading state -> When data is being fetched --while waiting for data , show a loading  message, spinner, or placeholder to inform the user 
+  2.Empty state -> When is no data available  --If no data is available , display a friendly mesage to the user  (no task available)
+  3.Error state -> When state -> when fetching data fails  -- If data fetching fails show an error message
+  You can handle multiple states in a single component using if/else or ternary operatorqqs.
+
+*/
+
