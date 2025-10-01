@@ -13,7 +13,8 @@ import Counter from "./components/State/Counter";
 import Form from "./components/Form/Form";
 import Search from "./components/search/Search";
 import FruitList from './components/map/FruitList';
-import Greeting from './components/Conditional/Ifternarylogc'
+// import Greeting from './components/Conditional/Ifternarylogc'
+import DataFetcher from "./components/Conditional/DataFetcher";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -41,7 +42,8 @@ function App() {
       {/* <Form/> */}
       {/* <Search /> */}
       {/* <FruitList/> */}
-      <Greeting/>
+      {/* <Greeting/> */}
+      <DataFetcher/>
     </div>
   );
 }
