@@ -12,42 +12,46 @@ import Message from "./components/Render/Message";
 import Counter from "./components/State/Counter";
 import Form from "./components/Form/Form";
 import Search from "./components/search/Search";
-import FruitList from './components/map/FruitList';
+import FruitList from "./components/Conditional/map/FruitList";
 // import Greeting from './components/Conditional/Ifternarylogc'
 import DataFetcher from "./components/Conditional/DataFetcher";
+import Greeting from "./components/Conditional/Ifternarylogc";
 
-function App() {
-  // const [count, setCount] = useState(0)
-  // const seatNumbers=[1,4,7]
-  // const person={
-  //   name:"Rob",
-  //   message:"Hi there!",
-  //   emoji:"😄",
-  //   seatNumbers:[1,4,7]
-  // }
-  return (
-    <div className="App">
-      {/* <Hello 
-        name="Rob" 
-        message="Hi there!" 
-        emoji="😄" 
-        seatNumbers={seatNumbers}/> */}
-      {/* <Hello name="Tom" message="Hi Hello"/> */}
+// function App() {
+// const [count, setCount] = useState(0)
+// const seatNumbers=[1,4,7]
+// const person={
+//   name:"Rob",
+//   message:"Hi there!",
+//   emoji:"😄",
+//   seatNumbers:[1,4,7]
+// }
+//   const fruits = ["Apple", "Banana", "Mango", "Orange"];
 
-      {/* <Hello person={person}/> */}
-      {/* <Fruits/> */}
-      {/* <ConditionalComponent/> */}
-      {/* <Message/> */}
-      {/* <Counter/> */}
-      {/* <Form/> */}
-      {/* <Search /> */}
-      {/* <FruitList/> */}
-      {/* <Greeting/> */}
-      <DataFetcher/>
-    </div>
-  );
-}
-export default App;
+//   return (
+//     <div className="App">
+//       {/* <Hello
+//         name="Rob"
+//         message="Hi there!"
+//         emoji="😄"
+//         seatNumbers={seatNumbers}/> */}
+//       {/* <Hello name="Tom" message="Hi Hello"/> */}
+
+//       {/* <Hello person={person}/> */}
+//       {/* <Fruits/> */}
+//       {/* <ConditionalComponent/> */}
+//       {/* <Message/> */}
+//       {/* <Counter/> */}
+//       {/* <Form/> */}
+//       {/* <Search /> */}
+//       <FruitList fruits={fruits}/>
+//       {/* <Greeting/> */}
+//       {/* <DataFetcher/> */}
+
+//     </div>
+//   );
+// }
+// export default App;
 
 /*
 function App() {
@@ -75,3 +79,18 @@ function App() {
 }
 export default App
 */
+
+export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  return (
+    <div>
+      <Greeting isLoggedIn={isLoggedIn} />
+      {isLoggedIn?(
+        <button onClick={()=>setIsLoggedIn(false)}>Logout</button>
+      ):(
+        <button onClick={()=>setIsLoggedIn(true)}>Login</button>
+      )}
+    </div>
+  );
+}

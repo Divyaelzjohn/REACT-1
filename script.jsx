@@ -462,7 +462,7 @@ By today, if you understand:
 
   Conditional rendering -> Sometimes in React you dont want to show a component all the time you want it to appear only when a certain condition rendering . React gives you multiple ways to do this 
 
-  if        -> The most straught forward method is using if/else statement inside your components function body to return diffrent JSX blocks. This approch is clear and easy to read making it ideal for complex , multifile conditional logic
+  if        -> The most straught forward method is using if/else statement inside your components function body to return diffr                    ent JSX blocks. This approch is clear and easy to read making it ideal for complex , multifile conditional logic
   Ternary operator   ->The ternary operator is a concise alternative for inline conditional rendering, especially when there are only two possible outcomes. It is perfect for handling simple if-else logic directly within JSX. 
   Logical && -> show something only if a condition true,       The logical && operator is a useful shorthand for conditionally rendering a single element or component. If the condition on the left side is true, the expression on the right is rendered. If the condition is false, React ignores and skips it, rendering nothing. 
   number>0&& 
