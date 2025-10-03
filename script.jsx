@@ -505,4 +505,14 @@ By today, if you understand:
         *Optionally include a call-to-action(e.g., "Try Again" button)
 
 
+
+Props
+Passing function as props is a core concept in React that allow a child component to communicate with and trigger actions in its parent. Since data flow in React is uni-directional, passing a function as a prop is the standard way to send data or trigger state changes from a child back up to its parent component
+
+Lifting state up to share data between components.​
+To share data between sibling or other related components in React, you need to "lift" the state up to their closest common parent.
+
+Child-to-parent communication through callbacks.
+In React, child-to-parent communication is not a direct data flow. Instead, it relies on passing functions (callbacks) from the parent component down to the child component as props. The child can then call this function when a specific event occurs, passing data as an argument to trigger an action or state change in the parent. This is a core part of the "lifting state up" pattern. 
+
 */
