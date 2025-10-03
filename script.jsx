@@ -515,4 +515,24 @@ To share data between sibling or other related components in React, you need to 
 Child-to-parent communication through callbacks.
 In React, child-to-parent communication is not a direct data flow. Instead, it relies on passing functions (callbacks) from the parent component down to the child component as props. The child can then call this function when a specific event occurs, passing data as an argument to trigger an action or state change in the parent. This is a core part of the "lifting state up" pattern. 
 
+
+Form methods
+// Controllled componants in react
+In React, a "controlled component" is a form element (like <input>, <textarea>, or <select>) whose value is controlled by React state.Instead of the DOM managing its own state, the component's state becomes the "single source of truth" for the form data. This approach makes handling user input, validation, and submission predictable and reliable. 
+1.Initialize state: Use the useState hook to define the initial state for the form data.
+2.Bind value: Pass the state variable as the value prop to the form element.
+3.Update state: Attach an onChange event handler to the form element. When the user enters data, this handler fires and updates the state.
+4.Re-render: React re-renders the component with the new state, causing the form element's value to reflect the updated state. 
+
+
+Single input
+To handle a single input, you can use useState to manage the input's value. The onChange handler updates this state whenever the input changes. A handleSubmit function can prevent the default form submission and process the current state value. You can find a detailed code example illustrating this in the referenced document.
+
+multiple inputs
+For forms with multiple inputs, using a single state object is a common approach. This involves initializing state as an object where keys correspond to input names. A single handleChange function can update the state object dynamically based on the input's name and value. You can find a detailed code example illustrating this in the referenced document
+
+'use server' 
+Add 'use server' at the top of an async function body to mark the function as callable by the client. We call these functions Server Functions.
+
+
 */
