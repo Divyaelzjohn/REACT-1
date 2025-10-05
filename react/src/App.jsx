@@ -25,6 +25,7 @@ import Child from "./components/Props/ChildDisplay";
 import ProductItem from "./components/Conditional/map/ProductItem";
 import SearchBar from "./components/Conditional/map/SearchBar";
 import ProductTable from "./components/Conditional/map/ProductTable";
+import ProductItem1 from "./components/Conditional/map/ProductItem1";
 /*
 function App() {
 // const [count, setCount] = useState(0)
@@ -403,7 +404,7 @@ export default function Cart() {
     </div>
   );
 }*/
-
+/*
 export default function TaskList() {
   const [tasks, setTasks] = useState([
     { title: "Buy milk", category: "Shopping" },
@@ -433,6 +434,219 @@ export default function TaskList() {
     </div>
   )
 }
+*/
+
+/*
+export default function ProductList1() {
+  const [showInStockOnly, setShowInStockOnly] = useState(false);
+
+  const products = [
+    { name: "Laptop", category: "Electronics", price: 1200, inStock: true },
+    { name: "Mouse", category: "Electronics", price: 25, inStock: false },
+    { name: "Keyboard", category: "Electronics", price: 75, inStock: true },
+    { name: "Chair", category: "Furniture", price: 150, inStock: true },
+  ];
+
+  // Filter products based on toggle
+  const displayedProducts = showInStockOnly
+    ? products.filter((p) => p.inStock)
+    : products;
+
+  // Calculate total price with .reduce()
+  const totalPrice = displayedProducts.reduce(
+    (acc, product) => acc + product.price,
+    0
+  );
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <h2>Product List</h2>
+      <button onClick={() => setShowInStockOnly((prev) => !prev)}>
+        {showInStockOnly ? "Show All" : "Show In-Stock Only"}
+      </button>
+
+      <ul>
+        {displayedProducts.map((product, i) => (
+          <ProductItem1 key={i} product={product} />
+        ))}
+      </ul>
+
+      <hr />
+      <h3>Total Price: ${totalPrice}</h3>
+    </div>
+  );
+}
+*/
+/*
+export default function TextFieldExample() {
+  const [name, setName] = useState("");
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <p>Your name: {name}</p>
+    </div>
+  );
+}*/
+
+/*
+export default function CheckboxExample() {
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
+  return (
+    <div>
+      <label>
+        <input
+          type="checkbox"
+          checked={isSubscribed}
+          onChange={(e) => setIsSubscribed(e.target.checked)}
+        />
+        Subscribe to newsletter
+      </label>
+      <p>{isSubscribed ? "✅ Subscribed" : "❌ Not Subscribed"}</p>
+    </div>
+  );
+}*/
+
+/*
+export default function RadioExample() {
+  const [gender, setGender] = useState("");
+
+  return (
+    <div>
+      <label>
+        <input
+          type="radio"
+          name="gender"
+          value="Male"
+          checked={gender === "Male"}
+          onChange={(e) => setGender(e.target.value)}
+        />
+        Male
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="gender"
+          value="Female"
+          checked={gender === "Female"}
+          onChange={(e) => setGender(e.target.value)}
+        />
+        Female
+      </label>
+      <p>Selected: {gender}</p>
+    </div>
+  );
+}
+*/
+/*
+export default function SelectExample() {
+  const [country, setCountry] = useState("India");
+
+  return (
+    <div>
+      <select value={country} onChange={(e) => setCountry(e.target.value)}>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+      </select>
+      <p>Selected Country: {country}</p>
+    </div>
+  );
+}*/
+/*
+export default function SelectExample() {
+  const [country, setCountry] = useState("India");
+
+  return (
+    <div>
+      <select value={country} onChange={(e) => setCountry(e.target.value)}>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+      </select>
+
+      <p>Selected Country: {country}</p>
+    </div>
+  );
+}
+*/
+
+
+// export default function TaskManager() {
+//   const [tasks, setTasks] = useState([]);
+//   const [formData, setFormData] = useState({ title: "", category: "" });
+
+//   function handleChange(e) {
+//     const { name, value } = e.target;
+//     setFormData((prev) => ({
+//       ...prev,
+//       [name]: value,
+//     }));
+//   }
+
+//   // Handle form submission
+//   function handleSubmit(e) {
+//     e.preventDefault();
+//     if (!formData.title || !formData.category) return;
+
+//     setTasks((prev) => [...prev, formData]);
+//     setFormData({ title: "", category: "" }); // reset form
+//   }
+
+//   // Group tasks by category with .reduce()
+//   const grouped = tasks.reduce((acc, task) => {
+//     if (!acc[task.category]) acc[task.category] = [];
+//     acc[task.category].push(task.title);
+//     return acc;
+//   }, {});
+
+//   return (
+//     <div style={{ padding: "20px" }}>
+//       <h2>Task Manager</h2>
+
+//       {/* Form to add new tasks */}
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           type="text"
+//           name="title"
+//           placeholder="Task title"
+//           value={formData.title}
+//           onChange={handleChange}
+//         />
+//         <input
+//           type="text"
+//           name="category"
+//           placeholder="Category"
+//           value={formData.category}
+//           onChange={handleChange}
+//         />
+//         <button type="submit">Add Task</button>
+//       </form>
+
+//       <hr />
+
+//       {/* Render grouped tasks */}
+//       {Object.entries(grouped).map(([category, titles]) => (
+//         <div key={category}>
+//           <h3>{category}</h3>
+//           <ul>
+//             {titles.map((title, i) => (
+//               <li key={i}>{title}</li>
+//             ))}
+//           </ul>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+
 
 ////////////////////////////////////////////////////////////////////////////
 /*// single input form
@@ -521,6 +735,85 @@ export default function MultiInputForm() {
   );
 }
 */
+/*
+export default function MultiInputForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
+
+  const [submittedData, setSubmittedData] = useState(null);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmittedData(formData);  // save submitted data
+    setFormData({ name: "", email: "", password: "" }); // clear form
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Name:{" "}
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <br />
+
+        <label>
+          Email:{" "}
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <br />
+
+        <label>
+          Password:{" "}
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <br />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      {submittedData && (
+        <div style={{ marginTop: "20px" }}>
+          <h3>Submitted Data:</h3>
+          <p><b>Name:</b> {submittedData.name}</p>
+          <p><b>Email:</b> {submittedData.email}</p>
+          <p><b>Password:</b> {submittedData.password}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+*/
 
 // export default function App() {
 //   function search(formData){
@@ -542,13 +835,11 @@ export default function MultiInputForm() {
 //   );
 // }
 
-
-
 // import { updateCart } from './lib.js';
 
 // export default function AddToCart({ productId }) {
 //   async function addToCart(formData) {
-//     'use server';  
+//     'use server';
 //     const productId = formData.get('productId');
 //     await updateCart(productId);
 //   }
@@ -560,7 +851,6 @@ export default function MultiInputForm() {
 //     </form>
 //   );
 // }
-
 
 // import { useFormStatus } from "react-dom";
 // // import { submitForm } from "./actions.js";
@@ -582,7 +872,6 @@ export default function MultiInputForm() {
 //     </form>
 //   );
 // }
-
 
 // export default function Thread({ messages, sendMessage }) {
 //   const formRef = useRef();
@@ -656,7 +945,6 @@ export default function MultiInputForm() {
 //   );
 // }
 
-
 // import { useActionState } from "react";
 // import { signUpNewUser } from "./api";
 
@@ -685,7 +973,6 @@ export default function MultiInputForm() {
 //     </>
 //   );
 // }
-
 
 // export default function Search() {
 //   function publish(formData) {
